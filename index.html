@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" 
-    integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="sass/styles.css">
+    
+    <script src="https://kit.fontawesome.com/b8a12c1a8c.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     
         <div class="form-container">
             <header>
+                <div class="logo-section">
                 <img src="./images/Union.png" alt="icon">
                 <img src="./images/pineapple..png" alt="icon">
+                </div>
                 <navbar class="navbar">
                     <ul class="nav-list">
-                        <li class="nav-list-item"><a href="#">About</a></li>
-                        <li class="nav-list-item"><a href="#">How it works</a></li>
-                        <li class="nav-list-item"><a href="#">Contact</a></li>
+                        <li><a class="nav-list-item" href="#">About</a></li>
+                        <li><a class="nav-list-item" href="#">How it works</a></li>
+                        <li><a class="nav-list-item" href="#">Contact</a></li>
                     </ul>
                 </navbar>
             </header>
@@ -30,14 +31,16 @@
                     
                     <input type="text" id="email" name="email">
                     <label for="email">-></label>
+                    <br>
                     <input type="checkbox" id="agree" name="agree" value="agree">
                     <label for="agree">I agree to <span>terms of servce</span></label>
                 </form>
-
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-youtube"></i>
+                <div class="icon-container">
+                <i class="fab fa-facebook-f fa-2x sicon" id="icon" ></i>
+                <i class="fab fa-instagram fa-2x sicon" id="icon"></i>
+                <i class="fab fa-twitter fa-2x sicon" id="icon"></i>
+                <i class="fab fa-youtube fa-2x sicon" id="icon"></i>
+            </div>
             </main>
 
         </div>

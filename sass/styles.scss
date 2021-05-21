@@ -1,0 +1,111 @@
+$text-color: #6A707B;
+$header-color: #131821;
+$icon-color: #E3E3E4;
+$form-color: #4066A5;
+
+
+@mixin flexCenter ($direction) {
+    display: flex;
+    align-items: center;
+    flex-direction: $direction;
+    
+}
+
+body {
+    @include flexCenter(row);
+    font-family: Arial, Helvetica, sans-serif;
+    color: $text-color;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+h1{
+    color: $header-color;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    display: flex;
+    text-align: center;
+    //@include flexCenter(row);
+    
+}
+.nav-list{
+    display: flex;
+    justify-content: space-between; 
+    margin: 0;
+    gap: 1px;
+    list-style: none;
+    letter-spacing: 1px;
+}
+.nav-list-item{
+    text-decoration: none;
+    color: inherit;
+}
+.navbar{
+    padding: 1em;
+}
+.form-container{
+    width: 35.42%;
+    height: 100vh;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F2F5FA 100%);
+    text-align: center;
+}
+.image-container{
+    width: 64.58%;
+    height: 100vh;
+}
+.icon-container{
+    border-top: 2px solid $icon-color;
+    position: absolute;
+    width: 400px;
+    padding: 1em;
+    margin: 0 auto;
+}
+form{
+    padding: 1em;
+}
+.main-img{
+    position: absolute;
+    height: 100vh;
+}
+
+
+
+#icon {
+    width: 46px;
+    height: 46px;
+    color: $icon-color;
+    border: 2px solid $icon-color;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 46px;
+    vertical-align: middle;
+    padding: 5px;
+    
+    
+}
+@mixin onHover ($color) {
+    background: $color;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);  
+}
+@mixin onPressed ($color) {
+    color: white;
+    background: $color;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);  
+}
+
+.fa-facebook-f:hover{
+    @include onHover(#4267B2);
+}
+.fa-instagram:hover{
+    @include onHover(#C13584);
+}
+.fa-twitter:hover{
+    @include onHover(#1DA1F2);
+}
+.fa-youtube:hover{
+    @include onHover(#FF0000);
+}
+
+
