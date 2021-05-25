@@ -1,0 +1,20 @@
+$text-color: #6A707B;
+$header-color: #131821;
+$icon-color: #E3E3E4;
+$form-color: #4066A5;
+
+@mixin flexCenter ($direction) {
+    display: flex;
+    align-items: center;
+    flex-direction: $direction;   
+}
+
+@mixin onHover ($color) {
+    background: $color;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);  
+}
+@mixin onPressed ($color) {
+    color: white;
+    background: $color;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);  
+}

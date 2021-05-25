@@ -1,0 +1,12 @@
+@media(max-width: 800px) {
+    
+    body{
+        @include flexCenter(none);
+    }
+    .main-img{
+        position: absolute;
+        height: 100vh;
+        z-index: -1;
+    }
+    
+}

@@ -1,3 +1,10 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,8 +19,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: #6A707B;
   font-size: 16px;
-  padding: 0;
-  margin: 0;
 }
 
 h1 {
@@ -114,5 +119,49 @@ form {
   background: #FF0000;
   -webkit-box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
           box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+}
+
+.input-wrapper {
+  position: relative;
+  border: 2px solid black;
+}
+
+#email-input {
+  border-radius: 0px;
+  position: relative;
+  padding: 0px 30% 0px 10px;
+}
+
+#email-submit {
+  position: absolute;
+  border-style: none;
+  border-radius: inherit;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: none;
+            flex-direction: none;
+  }
+  .main-img {
+    position: absolute;
+    height: 100vh;
+    z-index: -1;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
