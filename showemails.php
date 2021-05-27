@@ -1,5 +1,12 @@
 <?php 
 require("classes/emailView.php");
+if(isset($_POST['search'])){
+    $id = $_POST['searchInp'];
+} else {
+    $id = '';
+}
+
+//
 if(isset($_GET['order'])){
     $order =$_GET['order'];
 }else {
@@ -10,9 +17,21 @@ if(isset($_GET['sort'])){
 }else{
     $sort='ASC';
 }
+if(isset($_GET['filter'])){
+    $click = $_GET['filter'];
+}else {
+    $click = '';
+}
+//
 $sort == 'DESC' ? $sort = 'ASC' : $sort = 'DESC';
+
 $test = new EmailsView($order, $sort);
 $received=$test->showSortedEmails($order, $sort);
+$filtered =$test->showFilteredEmails();
+$specDom =$test->showSortedEmailDomain($click);
+var_dump($specDom);
+$searchfor = $test->showFoundEmails($id);
+var_dump($searchfor);
 ?>
 
 <html lang="en">
@@ -25,6 +44,14 @@ $received=$test->showSortedEmails($order, $sort);
  
 </head>
 <body>
+<div class="main-container">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <input type="text" name="searchInp" placeholder="enter email to search"/> </br>
+    <input type="submit" name="search" value="search email">
+</form>
+<?php foreach($filtered as $fltr) : ?>
+    <a href='?filter=<?= $fltr ?>'><?= $fltr ?></a>
+<?php endforeach ?>
 <form method="POST" action="delete.php">
 <button type="submit" name="mass_delete" id="mass-delete">Mass delete</button>
         <div class="email-container">
@@ -46,13 +73,9 @@ $received=$test->showSortedEmails($order, $sort);
 
    <?php endforeach ?>
         </table>
-        
-        
-        
         </div>
-    
-    
         </form>
+        </div>
 
   <script src="index.js" type = "text/javascript"></script>
     

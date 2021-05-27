@@ -16,45 +16,29 @@ class Emails extends Db {
         $stmt->execute();
         $results = $stmt->fetchAll();
         return $results;
+    }
 
-        /*
-        if(isset($_GET['order'])){
-            $order =$_GET['order'];
-        }else {
-            $order = 'email';
-        }
-        if(isset($_GET['sort'])){
-            $sort = $_GET['sort'];
-        }else{
-            $sort='ASC';
-        }
+    protected function filterEmails(){
+        $sql = "SELECT email FROM emails";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+        return $results;
+    }
+    protected function filterEmailDomain($dname){
+        $sql = "SELECT * FROM emails WHERE email LIKE '%$dname%' ";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+        return $results;
+    }
 
-        //$resultSet = $mysqli->query("SELECT * FROM email_form ORDER BY $order $sort");
-        if($resultSet->num_rows >0){
-            $sort == 'DESC' ? $sort = 'ASC' : $sort = 'DESC';
-
-            echo "
-            <table border='1'>
-            <tr>
-            <th><a href='?order=email&&sort=$sort'>emails</a></th>
-            <th><a href='?order=date&&sort=$sort'>date</a></th>
-            </tr>
-            ";
-            while($rows = $resultSet->fetch_assoc()){
-                $email = $rows['email'];
-                $date = $rows['date'];
-                echo"
-                <tr>
-                    <td>$email</td>
-                    <td>$date</td>
-                </tr>
-                ";
-            }
-            echo"
-            </table>";
-        }else {
-            echo "No records returned";
-        }*/
+    protected function searchEmail($srch){
+        $sql = "SELECT * FROM emails WHERE email LIKE '%$srch%' ";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+        return $results;
     }
     
     protected function setEmail($email){
