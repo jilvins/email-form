@@ -17,8 +17,8 @@ class EmailsView extends Emails {
     return $results;
    }
 
-   public function showSortedEmails($order, $sort){
-    $results = $this->sortEmails($order, $sort);
+   public function showSortedEmails($dname, $srch, $order, $sort){
+    $results = $this->sortEmails($dname, $srch, $order, $sort);
     return $results;
    }
 
@@ -44,7 +44,7 @@ class EmailsView extends Emails {
     $results = $this->filterEmailDomain($dname);
     return $results;
    }
-   
+
    public function showFoundEmails($srch) {
        $result = $this->searchEmail($srch);
        return $result;

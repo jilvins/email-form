@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 class FormValidator {
     private $data;
@@ -10,31 +11,40 @@ class FormValidator {
     }
 
     public function validateForm() {
-        foreach(self::$fields as $field){
-            if(!array_key_exists($field, $this->data)){
-                trigger_error("$field is not present i data");
-                return;
-            }
-        }
+     
         $this->validateEmail();
         $this->validateCheckbox();
+        if($this->errors !== []){
+            return $this->errors;
+    } else {
+        
+        $_SESSION['session-data'] = $this->data;
+        header ("Location: ./newemail.php"); exit;} 
+        $this->errors = 'passed';
         return $this->errors;
     }
 
     private function validateEmail(){
         $val = trim($this->data['email']);
+        $forbiddenDomains = ['co'];
+        $splitEmail = explode('.', $val);
         if(empty($val)){
-            $this->addError('email', 'email cannot be empty');
+            $this->addError('email', 'email cannot be empty (from php)');
         } else {
             if(!preg_match('/^[^ ]+@[^ ]+\.[a-z]{2,3}$/', $val)){
-                $this->addError('email', 'must be valid email');
+                $this->addError('email', 'must be valid email (from php)');
+            } else {
+                
+                if(in_array($forbiddenDomains[0], $splitEmail)){
+                    $this->addError('email', 'cant accept from co (from php)');
+                } 
             }
         }
     }
     private function validateCheckbox(){
-        $val = trim($this->data['agree']);
+        $val =  isset($this->data['agree']) ? trim($this->data['agree']) : null;
         if(empty($val)){
-            $this->addError('agree', 'you have to acept terms');
+            $this->addError('agree', 'you have to acept terms (from php)');
         }
 
     }

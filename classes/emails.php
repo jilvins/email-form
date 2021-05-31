@@ -10,8 +10,8 @@ class Emails extends Db {
         return $results;
     }
 
-    protected function sortEmails($order, $sort){
-        $sql = "SELECT * FROM emails ORDER BY $order $sort";
+    protected function sortEmails($dname, $srch, $order, $sort){
+        $sql = "SELECT * FROM emails WHERE (email LIKE '%$dname%') AND (email LIKE '%$srch%') ORDER BY $order $sort";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
         $results = $stmt->fetchAll();
@@ -25,6 +25,7 @@ class Emails extends Db {
         $results = $stmt->fetchAll();
         return $results;
     }
+    ///izm pārnsets uz sortEmails
     protected function filterEmailDomain($dname){
         $sql = "SELECT * FROM emails WHERE email LIKE '%$dname%' ";
         $stmt = $this->connect()->prepare($sql);
@@ -32,7 +33,9 @@ class Emails extends Db {
         $results = $stmt->fetchAll();
         return $results;
     }
+    ////////
 
+    ////izm pārnsets uz sortEmails
     protected function searchEmail($srch){
         $sql = "SELECT * FROM emails WHERE email LIKE '%$srch%' ";
         $stmt = $this->connect()->prepare($sql);
@@ -40,6 +43,7 @@ class Emails extends Db {
         $results = $stmt->fetchAll();
         return $results;
     }
+    /////////
     
     protected function setEmail($email){
         $sql = "INSERT INTO emails(email) VALUES (?)";

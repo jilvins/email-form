@@ -3,21 +3,23 @@ require("emailcontr.php");
 
 class PassedData extends EmailsContr{
    
-   function __construct($post){
+   function __construct($session, $post){
        $this->post = $post;
-       $this->email = trim($this->post['email']);
+       $this->session = $session;
+       $this->email = trim($this->session['email']);
        
     }
        public function addNewEmail(){
            $this->createProduct($this->email);
-          
-               header("Location:index.php");
+
+               $update = "successful";
+               header("Location:index.php?update=".$update);
                exit();
        }
        public function deleteSelectedEmails() {
             $this->deleteProduct($this->post);
 
-                header("Location:index.php");
+                header("Location:showemails.php");
                 exit();
        }
        
