@@ -16,67 +16,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./sass/styles.css">
-    <script src="https://kit.fontawesome.com/b8a12c1a8c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./sass/styles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
     <script type = "text/javascript">  
         </script>  
 </head>
-<body>
-    
-        <div class="form-container">
-            <header>
+<body onload="valCheckbox(), valEmail()">
+        
+            <div class="header">
                 <div class="logo-section">
                 <img src="./images/Union.png" alt="icon">
-                <img src="./images/pineapple..png" alt="icon">
+                <img class="logo-text" src="./images/pineapple..png" alt="icon">
                 </div>
-                <navbar class="navbar">
+                <div class="navbar">
                     <ul class="nav-list">
-                        <li><a class="nav-list-item" href="#">About</a></li>
-                        <li><a class="nav-list-item" href="#">How it works</a></li>
-                        <li><a class="nav-list-item" href="#">Contact</a></li>
+                        <li><a class="nav-list-item" href="#"><p>About</p></a></li>
+                        <li><a class="nav-list-item" href="#"><p>How it works</p></a></li>
+                        <li><a class="nav-list-item" href="#"><p>Contact</p></a></li>
                     </ul>
-                </navbar>
-            </header>
-            <main>
-            <?php
+                </div>
+            </div>
             
-            if($displayForm){ ?>
+            
+            
+            
                 <div class="subscription-form" id="subscription-form">
-                <h1>Subscribe to newsletter</h1>
-                <p>Subscribe to our newsletter and get 10% discount on pineapple glasses</p>
+                <?php if($displayForm){ ?>
+                <h1 class="tittle">Subscribe to newsletter</h1>
+                <p class="info">Subscribe to our newsletter and get 10% discount on pineapple glasses</p>
                 <form id="form" name="emailform" action="<?php //echo $_SERVER['PHP_SELF'] ?>" onsubmit="return validate()" method="POST">
                     <div class="input-wrapper">
-                    <input type="text" id="email-input" name="email" oninput="valEmail()">
-                    <input type="submit" id="email-submit" value="->" name="submit">
+                    <input type="text" id="email-input" name="email" oninput="valEmail ()">
+                    <input type="submit" id="email-submit" value="➔" name="submit">
                     </div>
                     <div class="error" id="email-error"><?php echo $errors['email'] ?? '' ?></div>
                     <br>
-                    <input type="checkbox" id="agree" name="agree">
+                    <div class="checkbox-container">
+                    <input class="checkbox" type="checkbox" id="agree" name="agree" onclick="valCheckbox()">
                     <label for="agree">I agree to <span>terms of servce</span></label>
+                    </div>
                     <div class="error" id="checkbox-error"><?php echo $errors['agree'] ?? '' ?></div>
                 </form>
-                </div>
+                
                 <?php  }  else { ?>
                
-                <div class="submited" id="submited-form">
+                <div class="" id="submited-form">
                     <img src="./images/Union2.png" alt="icon">
                     <h1>Thanks for subscribing!</h1>
                     <p>You have successfully subscribed to our email listing. Check your email for the discount code.</p>
                 </div>
                 <?php  } ?>
                 <div class="icon-container">
-                <i class="fab fa-facebook-f fa-2x sicon" id="icon" ></i>
-                <i class="fab fa-instagram fa-2x sicon" id="icon"></i>
-                <i class="fab fa-twitter fa-2x sicon" id="icon"></i>
-                <i class="fab fa-youtube fa-2x sicon" id="icon"></i>
-            </div>
-            </main>
+                <a href="#" class="fa fa-facebook fa-xs"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-youtube"></a>
+                </div>
+                </div>
 
-        </div>
-        <div class="image-container">
+           
+
+        
+        <!--<div class="image-container">-->
             <img class="main-img" src="./images/image_summer.png" alt="Pineapple with earphones">
-        </div>
+        <!--</div>-->
     
     
 

@@ -1,0 +1,36 @@
+.fa {
+    padding: 20*0.766px;
+    font-size: 30*0.766px;
+    width: 60*0.766px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: $icon-color;
+    border: 2px solid $icon-color;
+  }
+  
+.fa-facebook:hover{
+    @include onHover(#4267B2);
+}
+.fa-instagram:hover{
+    @include onHover(#C13584);
+}
+.fa-twitter:hover{
+    @include onHover(#1DA1F2);
+}
+.fa-youtube:hover{
+    @include onHover(#FF0000);
+}
+
+.fa-facebook:active{
+    @include onHover(#2F4A80);
+}
+.fa-instagram:active{
+    @include onHover(#8F2762);
+}
+.fa-twitter:active{
+    @include onHover(#177FBF);
+}
+.fa-youtube:active{
+    @include onHover(#CC0000);
+}
