@@ -6,7 +6,7 @@ Showemails page allows to access the whole database, you can sort all entries an
 
 ## Technologies
 
-PHP, MySQL, JavaScript, Sass, Font Awesome
+PHP, MySQL, JavaScript, SCSS, Font Awesome
 
 No additional libraries or frameworks are used.
 
