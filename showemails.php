@@ -22,14 +22,14 @@ $filtered =$test->showFilteredEmails();
 <form id="searchform" action='' method="POST">
     <input id="searchInp" type="text" name="searchInp" placeholder="enter email to search"/> </br>
     <input class="fltr-btn" type="submit" name="search" value="search email">
-    <a class="fltr-btn-off" href='?filter=<?= $click ?>&&order=date&&srch=&&sort=<?= $sort ?>'>Turn off search</a>
+    <a class="fltr-btn-off" href='?page=<?= $page ?>&&filter=<?= $click ?>&&order=date&&srch=&&sort=<?= $sort ?>'>Turn off search</a>
 </form>
 <div class="filter-container">
     <h2>Filter the emails by specific email providers name:</h2>
 <?php foreach($filtered as $fltr) : ?>
-    <a class="fltr-btn" href='?filter=<?= $fltr ?>&&order=date&&srch=<?=  $idp ?>&&sort=<?= $sort ?>'><?= $fltr ?></a>
+    <a class="fltr-btn" href='?page=<?= $page ?>&&filter=<?= $fltr ?>&&order=date&&srch=<?=  $idp ?>&&sort=<?= $sort ?>'><?= $fltr ?></a>
 <?php endforeach ?>
-    <a class="fltr-btn-off" href='?filter=&&order=date&&srch=<?=  $idp ?>&&sort=<?= $sort ?>'>Turn off filter</a>
+    <a class="fltr-btn-off" href='?page=<?= $page ?>&&filter=&&order=date&&srch=<?=  $idp ?>&&sort=<?= $sort ?>'>Turn off filter</a>
 </div>
 <form method="POST" action="./actproc/delete.php">
     <button class="fltr-btn-off" type="submit" name="mass_delete" id="mass-delete">Delete selected</button>
@@ -38,8 +38,8 @@ $filtered =$test->showFilteredEmails();
             <h1>Email list</h1>
             <tr>
                 <th>ID</th>
-                <th>Email<a href='?filter=<?= $click ?>&&order=email&&srch=<?=  $idp  ?>&&sort=<?= $sort ?>'><i class="fas fa-sort"></i></a></th>
-                <th>Date<a href='?filter=<?= $click ?>&&order=date&&srch=<?=  $idp  ?>&&sort=<?= $sort ?>'><i class="fas fa-sort"></i></a></th>
+                <th>Email<a href='?page=<?= $page ?>&&filter=<?= $click ?>&&order=email&&srch=<?=  $idp  ?>&&sort=<?= $sort ?>'><i class="fas fa-sort"></i></a></th>
+                <th>Date<a href='?page=<?= $page ?>&&filter=<?= $click ?>&&order=date&&srch=<?=  $idp  ?>&&sort=<?= $sort ?>'><i class="fas fa-sort"></i></a></th>
             </tr>
             <?php foreach ($received as $result) : ?>
             <tr>
