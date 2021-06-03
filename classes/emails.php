@@ -10,12 +10,20 @@ class Emails extends Db {
         return $results;
     }
 
-    protected function sortEmails($dname, $srch, $order, $sort){
-        $sql = "SELECT * FROM emails WHERE (email LIKE '%$dname%') AND (email LIKE '%$srch%') ORDER BY $order $sort";
+    protected function sortEmails($dname, $srch, $order, $sort, $start){
+        $perpage =10;
+        $sql = "SELECT * FROM emails WHERE (email LIKE '%$dname%') AND (email LIKE '%$srch%') ORDER BY $order $sort LIMIT $start, $perpage";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
         $results = $stmt->fetchAll();
         return $results;
+    }
+    protected function getEmailcount($dname, $srch){
+        $sql = "SELECT * FROM emails WHERE (email LIKE '%$dname%') AND (email LIKE '%$srch%')";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        $email_count = $stmt->rowCount();
+        return $email_count;
     }
 
     protected function filterEmails(){
@@ -25,7 +33,7 @@ class Emails extends Db {
         $results = $stmt->fetchAll();
         return $results;
     }
-    ///izm pārnsets uz sortEmails
+    
     protected function filterEmailDomain($dname){
         $sql = "SELECT * FROM emails WHERE email LIKE '%$dname%' ";
         $stmt = $this->connect()->prepare($sql);
@@ -33,9 +41,7 @@ class Emails extends Db {
         $results = $stmt->fetchAll();
         return $results;
     }
-    ////////
-
-    ////izm pārnsets uz sortEmails
+    
     protected function searchEmail($srch){
         $sql = "SELECT * FROM emails WHERE email LIKE '%$srch%' ";
         $stmt = $this->connect()->prepare($sql);
@@ -43,7 +49,6 @@ class Emails extends Db {
         $results = $stmt->fetchAll();
         return $results;
     }
-    /////////
     
     protected function setEmail($email){
         $sql = "INSERT INTO emails(email) VALUES (?)";

@@ -13,13 +13,13 @@ class PassedData extends EmailsContr{
            $this->createProduct($this->email);
 
                $update = "successful";
-               header("Location:index.php?update=".$update);
+               header("Location:../index.php?update=".$update);
                exit();
        }
        public function deleteSelectedEmails() {
             $this->deleteProduct($this->post);
 
-                header("Location:showemails.php");
+                header("Location:../showemails.php");
                 exit();
        }
        

@@ -1,6 +1,6 @@
 <?php 
 
-require("./classes/passesData.php");
+require("../classes/passesData.php");
 
 if(isset($_POST['mass_delete'])){
     $all_id = $_POST["deleteid"];

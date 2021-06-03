@@ -1,3 +1,6 @@
+.main-container {
+  margin: 1em;
+}
 .fltr-btn{
     background-color: #555555;
     border: none;
@@ -7,8 +10,9 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-  }
-  .fltr-btn-off{
+    margin-top: 1em;
+}
+.fltr-btn-off{
     background-color: #e7e7e7;
     border: none;
     color: black;
@@ -17,4 +21,35 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-  }
+    margin-top: 1em;
+}
+
+.pag-btn{
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+.pag-btn.active{
+    background-color: #e7e7e7;
+    border: none;
+    color: black;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+.pag-btn a {
+    color: cornsilk;
+    text-decoration: none;
+}
+
+.pag-btn.active a{
+    color: black;
+    text-decoration: none;
+}
